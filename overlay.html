@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>News Ticker</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .ticker-wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #c40000;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .ticker-text {
+    white-space: nowrap;
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker 20s linear infinite;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  @keyframes ticker {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="ticker-wrapper">
+    <div class="ticker-text">
+      🔴 Nachricht 1: Der BER steigt jährlich. &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      🔴 Nachricht 2: Der BER wird besser. &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      🔴 Nachricht 3: Der BER entwickelt sich.
+    </div>
+  </div>
+</body>
+</html>
+

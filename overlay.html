@@ -2,56 +2,80 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>News Ticker</title>
+<title>BER News Ticker</title>
 <style>
   body {
     margin: 0;
-    padding: 0;
-    overflow: hidden;
     background: transparent;
-  }
-
-  .ticker-wrapper {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #c40000;
-    display: flex;
-    align-items: center;
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  .ticker-text {
-    white-space: nowrap;
-    display: inline-block;
-    padding-left: 100%;
-    animation: ticker 20s linear infinite;
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: bold;
+  .ticker {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #c40000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  @keyframes ticker {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  .message {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+    animation: fadeCycle 51s infinite;
+  }
+
+  /* Nachricht 1 */
+  .message:nth-child(1) { animation-delay: 0s; }
+
+  /* Nachricht 2 */
+  .message:nth-child(2) { animation-delay: 10s; }
+
+  /* Nachricht 3 */
+  .message:nth-child(3) { animation-delay: 20s; }
+
+  /* Nachricht 4 */
+  .message:nth-child(4) { animation-delay: 30s; }
+
+  /* Nachricht 5 */
+  .message:nth-child(5) { animation-delay: 40s; }
+
+  @keyframes fadeCycle {
+    0%   { opacity: 0; visibility: hidden; }
+    3%   { opacity: 1; visibility: visible; }  /* Fade In */
+    19%  { opacity: 1; visibility: visible; }  /* 5 Sekunden sichtbar */
+    22%  { opacity: 0; visibility: hidden; }   /* Fade Out */
+    100% { opacity: 0; visibility: hidden; }   /* Pause bis nächste Nachricht */
   }
 </style>
 </head>
 
 <body>
-  <div class="ticker-wrapper">
-    <div class="ticker-text">
-      🔴 Nachricht 1: Der BER steigt jährlich. &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      🔴 Nachricht 2: Der BER wird besser. &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      🔴 Nachricht 3: Der BER entwickelt sich.
-    </div>
+
+<div class="ticker">
+  <div class="message">
+    🔴 Der BER hatte im Jahr 2025 ein Passagieraufkommen von über 26&nbsp;Millionen.
   </div>
+  <div class="message">
+    🔴 Der verkehrsreichste Tag war der 17.&nbsp;Oktober&nbsp;2025 mit 102.000 Reisenden.
+  </div>
+  <div class="message">
+    🔴 QR 081 aus Doha planmäßige Ankunft 13:25 Uhr - Typ: B787-9
+  </div>
+  <div class="message">
+    🔴 Gestern 19.01.26 kamen 2 Flugzeuge des Typ A400M zum BER
+  </div>
+  <div class="message">
+    🔴 Ebenfalls gestern: B777-300 Turkish Airlines sowie A330-200 der NATO
+  </div>
+</div>
+
 </body>
 </html>
-
